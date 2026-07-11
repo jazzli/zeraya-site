@@ -1,12 +1,16 @@
-/* Zeraya site — midnight / ivory / gold, no external resources. */
+/* Zeraya site — midnight / ivory / amethyst, no external resources.
+   Tokens mirror the app's Theme.swift: brand #A98CE0 (luminous amethyst),
+   violet partner #4F3E8A, midnight #090A1C, ivory #F3F0E5. Gold is retired
+   from the brand (it survives in-app only as atmospheric ember). */
 :root {
-  --midnight: #0b0e1a;
+  --midnight: #090A1C;
   --ink: #131727;
-  --ivory: #f2ecdd;
-  --ivory-dim: #b9b3a4;
-  --gold: #c9a961;
-  --gold-dim: #9a8452;
-  --hairline: rgba(242, 236, 221, 0.14);
+  --ivory: #F3F0E5;
+  --ivory-dim: rgba(243, 240, 229, 0.60);
+  --brand: #A98CE0;
+  --brand-dim: rgba(169, 140, 224, 0.55);
+  --violet: #4F3E8A;
+  --hairline: rgba(243, 240, 229, 0.14);
 }
 
 * { box-sizing: border-box; }
@@ -16,7 +20,7 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--midnight);
-  background-image: radial-gradient(ellipse 120% 60% at 50% -10%, #1a2038 0%, var(--midnight) 60%);
+  background-image: radial-gradient(ellipse 120% 60% at 50% -10%, #141334 0%, var(--midnight) 60%);
   color: var(--ivory);
   font-family: Georgia, "Times New Roman", "Songti SC", "Songti TC", "Noto Serif CJK SC", serif;
   line-height: 1.7;
@@ -70,8 +74,8 @@ header.site {
 }
 
 .lang-switch button.active {
-  background: rgba(201, 169, 97, 0.16);
-  color: var(--gold);
+  background: rgba(169, 140, 224, 0.16);
+  color: var(--brand);
 }
 
 h1 {
@@ -99,11 +103,11 @@ p, li { color: var(--ivory-dim); font-size: 1rem; margin: 0.5rem 0 1rem; }
 h3 + p { margin-top: 0.25rem; }
 strong { color: var(--ivory); font-weight: 600; }
 
-a { color: var(--gold); text-decoration: none; }
+a { color: var(--brand); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 .kicker {
-  color: var(--gold);
+  color: var(--brand);
   font-size: 0.78rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -136,9 +140,9 @@ a:hover { text-decoration: underline; }
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.55rem 1.4rem;
-  border: 1px solid var(--gold-dim);
+  border: 1px solid var(--brand-dim);
   border-radius: 999px;
-  color: var(--gold);
+  color: var(--brand);
   font-size: 0.9rem;
   letter-spacing: 0.08em;
 }
@@ -160,6 +164,34 @@ a:hover { text-decoration: underline; }
   font-size: 0.82rem;
   color: var(--ivory-dim);
   margin: 0;
+}
+
+.screens {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin: 3rem auto 0;
+  padding: 0 0 0.75rem;
+  list-style: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.screens::-webkit-scrollbar { display: none; }
+
+.screens li { margin: 0; flex: 0 0 auto; }
+
+.screens img {
+  display: block;
+  width: min(58vw, 300px);
+  height: auto;
+  border-radius: 1.4rem;
+  border: 1px solid var(--hairline);
+}
+
+@media (min-width: 720px) {
+  .screens { justify-content: center; overflow-x: visible; }
 }
 
 footer.site {
